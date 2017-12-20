@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 50%;
+}
+</style>
+
+    </head>
+
+<body>
+
+    <div class="">
+
+        <img src="static/image/logo.png" style="width:50%; float: left" >
+
+        <!--<h2 style="float:right" >One-stop Information Service</h2>-->
+
+        </div>
+
+          <div class = "floating_menu">
+             <ul>
+                 <li><a class="{% block home %}{% endblock %}" href="/">Home</a></li>
+                 <li><a class="{% block housing %}{% endblock %}" href="/housing/">Housing</a></li>
+                 <li><a class="{% block roommate %}{% endblock %}" href="/roommate/">Roommate</a></li>
+                 <li><a class="{% block carpool %}{% endblock %}" href="/carpool/">Carpool</a></li>
+                 <li><a class="{% block studygroup %}{% endblock %}" href="/studygroup/">Study Group</a></li>
+                 <li><a class="{% block contact %}{% endblock %}" href="/contact/">Contact us</a></li>
+
+             </ul>
+
+          </div>
+
+
+    <div class = "floating_login">
+
+      <ul>
+                 <li><a class="{% block sign %}{% endblock %}" href="/login/">Sign Up</a></li>
+                 <li><a class="{% block login %}{% endblock %}" href="/login/">Log in</a></li>
+       </ul>
+
+
+    </div>
+
+     </header>
+
+  {% block content %}
+
+    <h1>information retrieval: </h1>
+
+    <form>
+      <input type="text" name="search" placeholder="Search..">
+    </form>
+
+
+  {% endblock %}
+
+
+ <footer>
+
+     <hr>
+
+  <div class = "footer">
+
+     <p> Follow us for more information </p>
+
+    <a class="fa fa-facebook"></a>
+    <a class="fa fa-twitter"></a>
+    <a class="fa fa-google"></a>
+    <a class="fa fa-instagram"></a>
+
+    <a class="fa fa-rss"></a>
+
+     <p>COPYRIGHT 2017 RESERVED</p>
+
+  </div>
+
+
+ </footer>
+
+
+ </body>
+
+ </html>

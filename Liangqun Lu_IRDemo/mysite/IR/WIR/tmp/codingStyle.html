@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>General Guidelines for Coding Style</title>
+</head>
+<body>
+<h1>General Guidelines for Coding Style<br>
+</h1>
+<address>Inspired from <a
+ href="http://www.emunix.emich.edu/%7Eevett/DataStructures/style-reqs.html">http://www.emunix.emich.edu/~evett/DataStructures/style-reqs.html</a>
+&nbsp;&nbsp; &nbsp; <br>
+</address>
+<hr>
+The major style elements that contribute to your program's grades are
+given
+below. The percentages in parentheses next to each element indicate its
+relative importance. Thus, function decomposition is twice as important
+as
+correct indentation.
+<ol>
+  <h3><li>Function Decomposition <i>(20%)</i></li>
+  </h3>
+  <b>You must decompose your programs
+into smaller parts</b>. One mainline won't cut it. This is one of the
+most
+common pitfalls of novice programmers. As a general rule of thumb, <b>no
+function should consist of more than 20 lines of code</b>. Yes, it's
+arbitrary, but
+think of it as a learning exercise; by having to fit within such
+constraints, you will come to appreciate what modular coding does for
+you,
+and when it is right to use bigger functions.
+  <p>The decomposition process does not occur at the very end. Some
+students
+bring code to me to look at, promising that they'll split it into
+smaller
+functions, "when they're done". That's not the point--you don't do this
+just to make the program look pretty. You want to
+decompose the problem (and your solution, i.e. the program) starting at
+the
+design phase. By forcing yourself to design modularly (i.e., use
+functions) from the
+beginning, your program will go together faster, be easier to debug and
+easier to read. Think Legos&copy; and Tinker-toys&copy;: lots of small
+pieces, each
+easy to comprehend and debug. Plug them together and you can get great
+stuff!
+  </p>
+  <p>As you write code, if you find a function becoming too large (too
+many
+variables, etc.), it's probably time to split the function into smaller
+parts.
+  </p>
+  <h3><li>Indentation<i>(10%)</i></li>
+  </h3>
+Follow the indentation style set forth in the course textbook, or in
+Foundations. The basic
+rule is that whenever you use (or could use) curly brackets, you indent
+the
+code inside the brackets by 3 or 4 spaces (you may use a different
+amount, but
+you should be consistent.) Below is a part of a program, showing proper
+indentation.
+<listing>
+int main()
+{
+	string month;
+	int days = 31; // default value of 31 days/month
+
+	cout &lt;&lt; "enter a month (lowercase letters): ";
+	cin &gt;&gt; month;
+
+	// 30 days hath september, april, june, and november
+
+	if ("september" == month)
+	{
+		days = 30;
+		cout &lt;&lt; "30!!" &lt;&lt; endl;
+	}
+	else if ("february" == month)
+	{
+		days = 28;
+	}
+
+	cout &lt;&lt; month &lt;&lt; " has " &lt;&lt; days &lt;&lt; " days" &lt;&lt; endl;
+
+return 0;
+
+}
+</listing>
+  <p>Here's another acceptable style:
+  </p>
+<listing>int main()
+{
+	string month;
+	int days = 31; // default value of 31 days/month
+
+	cout &lt;&lt; "enter a month (lowercase letters): ";
+	cin &gt;&gt; month;
+
+	// 30 days hath september, april, june, and november
+
+	if ("september" == month) {
+		days = 30;
+		cout &lt;&lt; "30!!" &lt;&lt; endl;
+	}
+	else if ("february" == month) {
+		days = 28;
+	}
+
+	cout &lt;&lt; month &lt;&lt; " has " &lt;&lt; days &lt;&lt; " days" &lt;&lt; endl;
+
+	return 0;
+}
+</listing>
+  <h3><li>Identifiers (naming conventions)<i>(10%)</i></li>
+  </h3>
+Note that these conventions differ slightly from the textbook's. I've
+tried to highlight the differences below.
+  <ul>
+    <li> Variables and parameters: should be <b>lowercase</b>, except
+use uppercase letters to separate words within the identifier. So, if
+you wanted to name a variable "size of balloon", you'd use <code>sizeOfBalloon</code>.
+    </li>
+    <li> Global variables: same as for variables, but capitalize the
+first letter. Even better, you can prefix all such names with a "g".
+For example: <code>gSizeOfBalloon</code>. </li>
+    <li> Constants: use all caps, and underbars to separate words. For
+example: <code>SIZE_OF_BALLOON</code>. </li>
+    <li> Functions/Methods: as with variables, but the first letter is <b>capitalized</b>.
+For example: <code>SizeOfBalloon()</code>. </li>
+    <li> Class names: same as functions.
+    </li>
+  </ul>
+  <h3>Comments</h3>
+This is a biggy. There are several types of comments and these are
+explained below. Remember that the overall purpose of comments is to
+make
+your code readily understandable to a trained programmer (including
+yourself). It may seem wasteful to spend the time putting comments into
+your programs: it's not! The more you work with other folks' code, the
+more often you go back to work with your own, old code, the more you
+will
+appreciate comments.
+  <h3><li>File header comment<i>(10%)</i></li>
+  </h3>
+The top of each file should feature a comment that briefly outlines the
+Contents and purpose of the file. Also, specify the history of the
+file:
+the date of each modification and the name of the modifier. For
+example:
+  <listing>#include &lt;iostream.h&gt;<br>
+#include &lt;string.h&gt;<br>
+  <br>
+// Illustrates cascaded if/else statements. Calculates the number of<br>
+// days in a month (specified as a string).<br>
+  <br>
+// VERSION HISTORY:<br>
+// Modified by Matt Evett, 5/23/1997<br>
+// Owen Astrachan 1/2/1996<br>
+  <br>
+int main()<br>
+{<br>
+  </listing>
+  <i>etc.....</i>
+  <h3><li>Header comments of class .h files<i>(20%)</i></li>
+  </h3>
+Like the header comments of other files, but more involved. You must
+describe the public interface. The header file for the
+  <code>balloon</code> class, <code>balloon.h</code>
+presents a good example. A part of that file's header comment follows:
+  <listing>#ifndef _BALLOON_H<br>
+#define _BALLOON_H<br>
+  <br>
+// class for balloon manipulation using simulated auto pilot<br>
+// written: 8/29/93 (based on an idea of Dave Reed)<br>
+// modified: 8/30/94, 12/29/94, 11/3/95<br>
+// modified: 5/23/97 by Matt Evett (changed header comments).<br>
+//<br>
+// Member function explanation:<br>
+//<br>
+// Ascend(int height): balloon ascends to height specified by parameter<br>
+// in a sequence of burns. Each burn raises the<br>
+// altitude by 10 meters<br>
+  </listing>
+  <i>etc....</i>
+  <h3><li>Function header comments<i>(20%)</i></li>
+  </h3>
+Immediately above the definition of each function, describe what each
+function does. Pay particular attention to describing the parameters,
+especially if they are reference parameters that could be altered by
+the
+function execution.
+  <p>Each function header must also contain a PRECONDITION and
+POSTCONDITION
+lines. The PRECONDITION comment specifies the preconditions that must
+exist for the
+function to execute correctly. Usually this is a relation or predicate
+that must hold on the parameters and global variables used by the
+function. The POSTCONDITION comment must specify what value the
+function
+returns, and any changes that will be made to reference parameters and
+global variables.
+  </p>
+  <p>The following example is taken from
+/usr/tools/cse.pub/matt/FoundationsCode/craps2.cc:
+  </p>
+  <listing>bool GetPoint(int point)<br>
+// precondition: 2 &lt;= point &lt;= 12<br>
+// postcondition: returns true if point obtained (winner)<br>
+// returns false if 'crapped out'<br>
+{<br>
+int sum;<br>
+do<br>
+{<br>
+sum = RollTwo();<br>
+} while (sum != point &amp;&amp; sum != 7);<br>
+  <br>
+return (sum == point);<br>
+}<br>
+  </listing>
+  <h3><li>In-function comments<i>(10%)</i></li>
+  </h3>
+  <ol>
+    <li> <b>Local variables:</b> each local variable should be
+declared on a separate line, with an in-line comment describing its
+purpose. </li>
+    <li> <b>Subsection comments: </b>for large functions (which
+should be rare, generally) you may want to place an in-line comment at
+the top of a subsection, describing what the code there does. Such
+comments should be indented with the code. </li>
+    <li> <b>In-line comments: </b>Knowing which lines to comment is
+one of the trickiest aspect of style. It's really more of an art, than
+a science. You should comment those lines of code that are not fairly
+self-explanatory. At the least, though, <b>you must comment every
+flow-of-control statement</b> (e.g. <code>if</code>, <code>do</code>,
+      <code>while</code>, <code>for</code>, and function call.) </li>
+  </ol>
+  <p>See code below, also taken from craps2.cc for some examples:
+  </p>
+  <pre>int main()<br>{<br>   int k;				     // Iteration counter.<br>   int gamesWon = 0;			     // Number of games won.<br>   int simulations =			     // Number of games to simulate.<br>     PromptRange("enter # games to simulate",1,1000000);<br><br>   for(k=0; k &lt; simulations; k++)	     // For each simulated game....<br>   {<br>       if (WinGame())<br>       {<br>           gamesWon++;<br>       }<br>   }<br><br>   // After running all the simulations, we output the results....<br>   cout &lt;&lt; "# of games = " &lt;&lt; simulations;<br>   cout &lt;&lt; " # won = "     &lt;&lt; gamesWon &lt;&lt; " = ";<br>   cout &lt;&lt; double(gamesWon)/simulations * 100 &lt;&lt; "%" &lt;&lt; endl;<br>   return 0;<br>}<br></pre>
+</ol>
+</body>
+</html>

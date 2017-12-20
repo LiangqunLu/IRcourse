@@ -1,0 +1,17 @@
+clinic_result = Clinical_process().clinical_file()
+clic_bina_feature = clinic_result[0]
+clic_conti_feature = clinic_result[1]
+all_clinical_df = clinic_result[2]
+
+
+
+P, Q, F = {s: None}, deque([s]), {s: inf}
+def label(inc):                          
+    if v in P or inc <= 0: return        
+    F[v], P[v] = min(F[u], inc), u       
+    Q.append(v)                           
+while Q:                                  
+    u = Q.popleft()                       
+    if u == t: return P, F[t]             
+    for v in G[u]: label(G[u][v]-f[u,v])  
+    for v in H[u]: label(f[v,u])   
